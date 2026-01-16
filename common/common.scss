@@ -310,6 +310,11 @@ html.dark-scheme {
       box-shadow: var(--pg-shadow-sm);
       transition: all 0.2s ease;
 
+      // Remove default Discourse ::before pseudo-element
+      &::before {
+        display: none !important;
+      }
+
       &:hover {
         box-shadow: var(--pg-shadow-md);
       }
