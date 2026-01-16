@@ -1,5 +1,6 @@
 # Prompt Goblins Theme Settings
 # These settings can be configured in Admin > Customize > Themes
+# Note: Colors are configured via Admin > Customize > Colors (color schemes)
 
 # Logo Settings
 logo_height:
@@ -16,17 +17,6 @@ logo_height_mobile:
   max: 70
   description: "Height of the logo in pixels (mobile)"
 
-# Color Customization
-pistachio_color:
-  type: color
-  default: "#93C572"
-  description: "Primary accent color (pistachio green)"
-
-cyan_accent_color:
-  type: color
-  default: "#3DBFBF"
-  description: "Secondary accent color (cyan/teal)"
-
 # Border Radius
 border_radius_base:
   type: integer
@@ -34,37 +24,6 @@ border_radius_base:
   min: 0
   max: 20
   description: "Base border radius in pixels"
-
-# Category Colors (can override defaults)
-category_prompt_engineering_color:
-  type: color
-  default: "#93C572"
-  description: "Color for Prompt Engineering category"
-
-category_ai_agents_color:
-  type: color
-  default: "#F5A673"
-  description: "Color for AI Agents category"
-
-category_models_color:
-  type: color
-  default: "#3DBFBF"
-  description: "Color for Models category"
-
-category_tools_color:
-  type: color
-  default: "#E8A54B"
-  description: "Color for Tools & Frameworks category"
-
-category_general_color:
-  type: color
-  default: "#9D8EC9"
-  description: "Color for General category"
-
-category_showcase_color:
-  type: color
-  default: "#FA6C8D"
-  description: "Color for Showcase category"
 
 # Feature Toggles
 show_topic_excerpts:
