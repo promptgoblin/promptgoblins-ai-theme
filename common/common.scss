@@ -15,6 +15,36 @@
   --pg-pistachio-hover: #7FB562;
   --pg-cyan: #3DBFBF;
   --pg-terminal-green: #7FD87F;
+
+  // Fonts
+  --font-family-headings: 'Space Grotesk', system-ui, -apple-system, sans-serif;
+  --font-family-mono: 'IBM Plex Mono', 'SF Mono', 'Fira Code', monospace;
+}
+
+// ============================================
+// Typography
+// ============================================
+
+html {
+  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6,
+.title,
+.topic-title,
+.category-name {
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+}
+
+code, pre, .cooked code, .d-editor-preview code {
+  font-family: var(--font-family-mono);
+}
+
+// Make the welcome title use the heading font
+.welcome-banner h1 {
+  font-family: var(--font-family-headings);
+  font-weight: 700;
 }
 
 // ============================================
@@ -121,8 +151,14 @@ body {
 // ============================================
 
 .sidebar-wrapper {
-  background-color: var(--secondary);
+  background-color: var(--primary-very-low);
   border-right: 1px solid var(--primary-low);
+  padding: 16px 8px;
+}
+
+// Sidebar container
+.sidebar-container {
+  background-color: var(--primary-very-low);
 }
 
 .sidebar-section-link-wrapper {
@@ -229,11 +265,27 @@ body {
 // Main Content Area
 // ============================================
 
+// Main content wrapper - give it a different background
+#main-outlet {
+  background-color: var(--secondary);
+  padding: 24px;
+  margin: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--primary-low);
+}
+
+// Ensure there's proper spacing inside main content
 .navigation-topics,
 .navigation-categories {
-  .main-content {
-    padding: 0 20px;
+  .contents {
+    padding: 0 8px;
   }
+}
+
+// List controls (categories dropdown, Latest/Hot/Categories tabs)
+.list-controls {
+  padding: 0 8px 16px 8px;
+  margin-bottom: 16px;
 }
 
 // Welcome banner
@@ -241,12 +293,20 @@ body {
   background-color: var(--primary-very-low);
   border-radius: 12px;
   padding: 24px;
-  margin-bottom: 20px;
+  margin: 0 8px 20px 8px;
   border: 1px solid var(--primary-low);
 
   h1 {
     color: var(--primary);
   }
+}
+
+// Footer message (no more topics)
+.footer-message {
+  margin: 16px 8px;
+  padding: 16px;
+  background-color: var(--primary-very-low);
+  border-radius: 8px;
 }
 
 // ============================================
@@ -258,6 +318,7 @@ body {
   background-color: var(--primary-very-low);
   border-radius: 12px;
   padding: 16px;
+  margin: 0 8px;
   border: 1px solid var(--primary-low);
 }
 
@@ -632,4 +693,60 @@ a {
 .spinner {
   border-color: var(--quaternary);
   border-right-color: transparent;
+}
+
+// ============================================
+// Custom Mode Toggle (Goblin Mode / Chill Mode)
+// ============================================
+
+// Style the theme toggle button
+.d-header-icons .color-scheme-toggler,
+.d-header-icons [data-toggle-dark-mode],
+.d-header-icons .btn-flat.toggle-dark {
+  position: relative;
+  min-width: 120px;
+  padding: 8px 16px !important;
+  border-radius: 20px !important;
+  background-color: var(--primary-low) !important;
+  border: 1px solid var(--primary-low-mid) !important;
+  font-family: var(--font-family-headings);
+  font-weight: 600;
+  font-size: 0.85em;
+
+  // Hide the default icon
+  .d-icon {
+    display: none;
+  }
+
+  // Add custom text
+  &::after {
+    content: "Chill Mode";
+    color: var(--primary);
+  }
+
+  &:hover {
+    background-color: var(--quaternary) !important;
+
+    &::after {
+      color: #fff;
+    }
+  }
+}
+
+// When in light mode, show "Chill Mode" (to switch to dark)
+html:not(.dark-scheme) {
+  .d-header-icons .color-scheme-toggler::after,
+  .d-header-icons [data-toggle-dark-mode]::after,
+  .d-header-icons .btn-flat.toggle-dark::after {
+    content: "Chill Mode 🌙";
+  }
+}
+
+// When in dark mode, show "Goblin Mode" (to switch to light)
+html.dark-scheme {
+  .d-header-icons .color-scheme-toggler::after,
+  .d-header-icons [data-toggle-dark-mode]::after,
+  .d-header-icons .btn-flat.toggle-dark::after {
+    content: "Goblin Mode ☀️";
+  }
 }

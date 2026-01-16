@@ -1,0 +1,27 @@
+<script type="text/discourse-plugin" version="0.8">
+  // Custom Goblin Mode / Chill Mode toggle
+  api.onPageChange(() => {
+    const updateToggleText = () => {
+      // Find the color scheme toggle button
+      const toggleBtn = document.querySelector('.color-scheme-toggler, [data-toggle-dark-mode], .btn-flat.toggle-dark');
+      if (!toggleBtn) return;
+
+      const isDark = document.documentElement.classList.contains('dark-scheme') ||
+                     document.body.classList.contains('dark-scheme') ||
+                     window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      // Add custom class for styling
+      toggleBtn.classList.add('pg-mode-toggle');
+
+      // Update aria-label for accessibility
+      toggleBtn.setAttribute('aria-label', isDark ? 'Switch to Goblin Mode' : 'Switch to Chill Mode');
+    };
+
+    // Run on page change
+    setTimeout(updateToggleText, 100);
+
+    // Watch for theme changes
+    const observer = new MutationObserver(updateToggleText);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+  });
+</script>
