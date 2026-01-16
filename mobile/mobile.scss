@@ -4,10 +4,18 @@
 // Header
 // ============================================
 
+.d-header {
+  .wrap {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
 #site-logo,
 .logo-big {
   max-height: 45px !important;
   height: 45px !important;
+  margin-left: 0; // Reset any margin, padding on wrap handles spacing
 }
 
 // Mode toggle smaller on mobile
@@ -45,11 +53,9 @@
       }
     }
 
-    // Smaller left border accent on mobile
-    &::before {
-      width: 3px;
-      top: 6px;
-      bottom: 6px;
+    // Smaller left border accent on mobile (using border-left on first td)
+    td:first-child {
+      border-left-width: 3px !important;
     }
   }
 }

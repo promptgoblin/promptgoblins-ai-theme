@@ -74,13 +74,18 @@ html, body {
   background-color: var(--header_background);
   border-bottom: none;
   box-shadow: none;
+  min-height: 100px;
 }
 
 .d-header {
   background-color: transparent;
+  min-height: 100px;
 
   .wrap {
-    padding: 12px 0;
+    padding: 16px 0;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
   }
 
   .d-header-icons {
@@ -101,13 +106,20 @@ html, body {
   }
 }
 
-// Logo - BIGGER
+// Logo container
+.title {
+  display: flex;
+  align-items: center;
+}
+
+// Logo - MUCH BIGGER (75% increase from 80px = ~140px)
 #site-logo,
 .logo-big,
 .d-header .logo-big,
 .d-header #site-logo {
-  max-height: 80px !important;
-  height: 80px !important;
+  max-height: 120px !important;
+  height: auto !important;
+  width: auto !important;
 }
 
 // ============================================
@@ -277,6 +289,7 @@ html.dark-scheme {
 .topic-list {
   border-collapse: separate;
   border-spacing: 0 8px;
+  width: 100%;
 
   .topic-list-header {
     th {
@@ -294,36 +307,24 @@ html.dark-scheme {
   .topic-list-body {
     .topic-list-item {
       background-color: var(--secondary);
-      border-radius: var(--pg-radius-lg);
       box-shadow: var(--pg-shadow-sm);
       transition: all 0.2s ease;
-      position: relative;
-
-      // Colorful left border accent (like mockup)
-      &::before {
-        content: '';
-        position: absolute;
-        left: 0;
-        top: 8px;
-        bottom: 8px;
-        width: 4px;
-        border-radius: 0 4px 4px 0;
-        background-color: var(--pg-pistachio);
-      }
 
       &:hover {
         box-shadow: var(--pg-shadow-md);
-        transform: translateY(-2px);
       }
 
       td {
         padding: 16px;
         border: none;
         vertical-align: middle;
+        background-color: var(--secondary);
 
+        // First cell gets the colored left border accent
         &:first-child {
+          border-left: 4px solid var(--pg-pistachio);
           border-radius: var(--pg-radius-lg) 0 0 var(--pg-radius-lg);
-          padding-left: 20px;
+          padding-left: 16px;
         }
 
         &:last-child {
@@ -332,6 +333,11 @@ html.dark-scheme {
       }
     }
   }
+}
+
+// Make the main-link column take available space
+.topic-list .main-link {
+  width: 100%;
 }
 
 // Topic titles
