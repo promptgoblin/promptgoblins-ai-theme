@@ -1,0 +1,314 @@
+// Prompt Goblins Theme - Desktop Styles
+// Styles specific to desktop viewport
+
+// ============================================
+// Header - Desktop Layout
+// ============================================
+
+.d-header {
+  .wrap {
+    max-width: 1200px;
+  }
+
+  #site-logo {
+    max-height: 55px;
+  }
+
+  .d-header-icons {
+    .icon {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--pg-radius-md);
+
+      &:hover {
+        background: var(--pg-bg-tertiary);
+      }
+
+      .d-icon {
+        font-size: 1.1em;
+      }
+    }
+  }
+}
+
+// ============================================
+// Main Content Area
+// ============================================
+
+#main-outlet-wrapper,
+#main-outlet {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+// ============================================
+// Topic List - Desktop
+// ============================================
+
+.topic-list {
+  .topic-list-item {
+    padding: 16px 20px;
+
+    .main-link {
+      .title {
+        font-size: 1.1em;
+      }
+    }
+
+    .posters {
+      a {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  // Hover effects for stats
+  .num {
+    transition: color 0.15s ease;
+  }
+
+  .topic-list-item:hover .num {
+    color: var(--pg-pistachio);
+  }
+}
+
+// ============================================
+// Categories Page - Desktop Grid
+// ============================================
+
+.category-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 20px;
+
+  .category-box {
+    padding: 20px;
+
+    .category-box-heading {
+      font-size: 1.15em;
+      margin-bottom: 8px;
+    }
+
+    .category-box-description {
+      color: var(--pg-text-secondary);
+      font-size: 0.9em;
+    }
+  }
+}
+
+// ============================================
+// Sidebar
+// ============================================
+
+.sidebar-wrapper {
+  background: var(--pg-bg-secondary);
+  border-radius: var(--pg-radius-lg);
+  border: 1px solid var(--pg-border-color);
+  padding: 16px;
+
+  .sidebar-section {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .sidebar-section-header {
+    font-weight: 700;
+    font-size: 0.85em;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--pg-text-muted);
+    margin-bottom: 12px;
+  }
+
+  .sidebar-section-link {
+    display: block;
+    padding: 8px 12px;
+    border-radius: var(--pg-radius-md);
+    color: var(--pg-text-primary);
+    text-decoration: none;
+
+    &:hover {
+      background: var(--pg-bg-tertiary);
+    }
+
+    &.active {
+      background: var(--pg-pistachio);
+      color: #FFFFFF;
+    }
+  }
+}
+
+// ============================================
+// Post Stream - Desktop
+// ============================================
+
+.post-stream {
+  .topic-post {
+    padding: 24px;
+    margin-bottom: 20px;
+
+    .topic-avatar {
+      padding-right: 16px;
+
+      .avatar {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    .topic-body {
+      padding: 0;
+      border: none;
+      background: transparent;
+    }
+  }
+
+  .topic-map {
+    background: var(--pg-bg-secondary);
+    border-radius: var(--pg-radius-lg);
+    border: 1px solid var(--pg-border-color);
+    margin: 20px 0;
+    padding: 16px;
+  }
+}
+
+// ============================================
+// Composer - Desktop
+// ============================================
+
+#reply-control {
+  &.open {
+    height: 400px;
+  }
+
+  .reply-area {
+    padding: 20px;
+  }
+
+  .d-editor-textarea-wrapper {
+    border-radius: var(--pg-radius-md);
+    border: 1px solid var(--pg-border-color);
+
+    &:focus-within {
+      border-color: var(--pg-pistachio);
+      box-shadow: 0 0 0 3px rgba(147, 197, 114, 0.15);
+    }
+  }
+}
+
+// ============================================
+// User Profile - Desktop
+// ============================================
+
+.user-main {
+  .about {
+    background: var(--pg-bg-secondary);
+    border-radius: var(--pg-radius-lg);
+    border: 1px solid var(--pg-border-color);
+    padding: 24px;
+  }
+
+  .user-profile-avatar {
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border: 4px solid var(--pg-pistachio);
+    }
+  }
+
+  .staff-counters {
+    background: var(--pg-bg-tertiary);
+    border-radius: var(--pg-radius-md);
+    padding: 16px;
+  }
+}
+
+// ============================================
+// Search - Desktop
+// ============================================
+
+.search-container {
+  .search-input {
+    min-width: 300px;
+    padding: 10px 16px;
+  }
+}
+
+.search-menu {
+  min-width: 450px;
+  max-height: 70vh;
+
+  .search-result-topic {
+    padding: 12px;
+    border-radius: var(--pg-radius-md);
+
+    &:hover {
+      background: var(--pg-bg-tertiary);
+    }
+  }
+}
+
+// ============================================
+// Admin / Moderator Tools - Desktop
+// ============================================
+
+.admin-controls {
+  background: var(--pg-bg-secondary);
+  border-radius: var(--pg-radius-lg);
+  border: 1px solid var(--pg-border-color);
+  padding: 16px;
+  margin-bottom: 20px;
+
+  .btn {
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
+// ============================================
+// Floating Action Buttons
+// ============================================
+
+.timeline-container {
+  .topic-timeline {
+    background: var(--pg-bg-secondary);
+    border-radius: var(--pg-radius-lg);
+    border: 1px solid var(--pg-border-color);
+    padding: 12px;
+  }
+}
+
+// ============================================
+// Keyboard Shortcuts Modal
+// ============================================
+
+.keyboard-shortcuts-modal {
+  .modal-inner-container {
+    max-width: 700px;
+  }
+
+  .shortcut-category {
+    margin-bottom: 24px;
+
+    h3 {
+      color: var(--pg-pistachio);
+      border-bottom: 2px solid var(--pg-pistachio);
+      padding-bottom: 8px;
+    }
+  }
+
+  kbd {
+    background: var(--pg-bg-tertiary);
+    border: 1px solid var(--pg-border-color);
+    border-radius: var(--pg-radius-sm);
+    padding: 4px 8px;
+    font-family: "SF Mono", monospace;
+  }
+}

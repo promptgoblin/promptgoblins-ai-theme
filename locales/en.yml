@@ -1,0 +1,23 @@
+en:
+  theme_metadata:
+    description: |
+      A custom theme for Prompt Goblins - an AI engineering community.
+      Features two color schemes:
+      - Goblin Mode (light): Playful and energetic
+      - Chill Mode (dark): Relaxed and focused
+
+  theme_settings:
+    logo_height: "Logo height (desktop)"
+    logo_height_mobile: "Logo height (mobile)"
+    pistachio_color: "Primary accent color"
+    cyan_accent_color: "Secondary accent color"
+    border_radius_base: "Border radius"
+    category_prompt_engineering_color: "Prompt Engineering category color"
+    category_ai_agents_color: "AI Agents category color"
+    category_models_color: "Models category color"
+    category_tools_color: "Tools & Frameworks category color"
+    category_general_color: "General category color"
+    category_showcase_color: "Showcase category color"
+    show_topic_excerpts: "Show topic excerpts"
+    enable_card_shadows: "Enable card shadows"
+    enable_smooth_transitions: "Enable smooth transitions"
