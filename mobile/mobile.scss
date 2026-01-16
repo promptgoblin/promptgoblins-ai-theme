@@ -1,211 +1,72 @@
 // Prompt Goblins Theme - Mobile Styles
-// Styles specific to mobile viewport
 
 // ============================================
-// Header - Mobile
+// Header
 // ============================================
 
-.d-header {
-  #site-logo {
-    max-height: 40px;
-  }
-
-  .d-header-icons {
-    .icon {
-      width: 36px;
-      height: 36px;
-    }
-  }
-
-  // Hamburger menu
-  .hamburger-panel {
-    top: 100%;
-    right: 0;
-    left: auto;
-    width: 85vw;
-    max-width: 320px;
-    border-radius: 0 0 var(--pg-radius-lg) var(--pg-radius-lg);
-  }
+#site-logo,
+.logo-big {
+  max-height: 40px;
 }
 
 // ============================================
-// Mobile Navigation
-// ============================================
-
-.mobile-nav {
-  background: var(--pg-bg-secondary);
-  border-bottom: 1px solid var(--pg-border-color);
-
-  a {
-    padding: 12px 16px;
-    color: var(--pg-text-primary);
-
-    &.active {
-      color: var(--pg-pistachio);
-      border-bottom: 2px solid var(--pg-pistachio);
-    }
-  }
-}
-
-// ============================================
-// Main Content - Mobile
-// ============================================
-
-#main-outlet-wrapper,
-#main-outlet {
-  padding: 12px;
-}
-
-// ============================================
-// Topic List - Mobile
+// Topic List
 // ============================================
 
 .topic-list {
-  border-radius: var(--pg-radius-md);
-
   .topic-list-item {
-    padding: 14px;
+    td {
+      padding: 12px 8px;
+    }
 
     .main-link {
       .title {
         font-size: 1em;
         line-height: 1.4;
       }
-
-      .topic-excerpt {
-        font-size: 0.9em;
-        margin-top: 6px;
-        color: var(--pg-text-secondary);
-      }
     }
-
-    // Stack the metadata on mobile
-    .link-bottom-line {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-  }
-
-  // Simplify stats on mobile
-  .num.posts,
-  .num.views {
-    font-size: 0.85em;
   }
 }
 
 // ============================================
-// Category Badges - Mobile
-// ============================================
-
-.badge-category {
-  padding: 3px 8px;
-  font-size: 0.75em;
-}
-
-// ============================================
-// Post Stream - Mobile
+// Post Stream
 // ============================================
 
 .post-stream {
   .topic-post {
     padding: 14px;
-    margin-bottom: 12px;
-    border-radius: var(--pg-radius-md);
 
     .topic-avatar {
-      padding-right: 12px;
-
       .avatar {
         width: 40px;
         height: 40px;
       }
     }
-
-    .topic-body {
-      font-size: 0.95em;
-    }
-
-    // Stack post actions on mobile
-    .post-actions {
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-  }
-
-  // Topic map on mobile
-  .topic-map {
-    padding: 12px;
-    border-radius: var(--pg-radius-md);
-
-    .map-table {
-      font-size: 0.9em;
-    }
   }
 }
 
 // ============================================
-// Composer - Mobile
+// Buttons - Touch Targets
 // ============================================
 
-#reply-control {
-  &.open {
-    height: 50vh;
-    min-height: 300px;
-  }
-
-  .reply-area {
-    padding: 12px;
-  }
-
-  .d-editor-button-bar {
-    flex-wrap: wrap;
-    gap: 4px;
-
-    .btn {
-      padding: 8px;
-    }
-  }
-
-  // Full width submit button on mobile
-  .submit-panel {
-    .btn-primary {
-      flex: 1;
-    }
-  }
+.btn {
+  min-height: 44px;
 }
 
 // ============================================
-// Categories - Mobile
+// Modals
 // ============================================
 
-.category-list {
-  .category-box {
-    padding: 14px;
-    margin-bottom: 12px;
-
-    .category-box-heading {
-      font-size: 1.05em;
-    }
-
-    .category-box-description {
-      font-size: 0.85em;
-    }
-  }
+.modal-inner-container {
+  margin: 8px;
+  border-radius: 12px;
 }
 
 // ============================================
-// User Profile - Mobile
+// User Profile
 // ============================================
 
 .user-main {
-  .about {
-    padding: 16px;
-
-    .details {
-      text-align: center;
-    }
-  }
-
   .user-profile-avatar {
     .avatar {
       width: 80px;
@@ -213,146 +74,10 @@
       border-width: 3px;
     }
   }
-
-  .staff-counters {
-    padding: 12px;
-    font-size: 0.9em;
-  }
-
-  // Stack user stats
-  .user-stat {
-    display: block;
-    text-align: center;
-    margin-bottom: 12px;
-  }
 }
 
 // ============================================
-// Search - Mobile
-// ============================================
-
-.search-menu {
-  position: fixed;
-  top: 60px;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  max-width: 100%;
-  width: 100%;
-  border-radius: 0;
-  z-index: 1000;
-
-  .search-input {
-    width: 100%;
-    font-size: 16px; // Prevent iOS zoom
-  }
-
-  .search-result-topic {
-    padding: 10px;
-  }
-}
-
-// ============================================
-// Buttons - Mobile Touch Targets
-// ============================================
-
-.btn {
-  min-height: 44px; // Apple's recommended touch target
-  padding: 10px 16px;
-}
-
-// ============================================
-// Modals - Mobile
-// ============================================
-
-.modal-inner-container {
-  margin: 8px;
-  max-height: calc(100vh - 16px);
-  border-radius: var(--pg-radius-lg);
-}
-
-// Full screen modals on small devices
-@media (max-width: 450px) {
-  .modal-inner-container {
-    margin: 0;
-    border-radius: 0;
-    max-height: 100vh;
-    height: 100%;
-  }
-
-  .modal-header,
-  .modal-footer {
-    border-radius: 0;
-  }
-}
-
-// ============================================
-// Floating Elements - Mobile
-// ============================================
-
-// Hide timeline on mobile (use progress bar instead)
-.timeline-container {
-  display: none;
-}
-
-// Progress bar at bottom
-.topic-progress-wrapper {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: var(--pg-bg-secondary);
-  border-top: 1px solid var(--pg-border-color);
-  padding: 8px 12px;
-  z-index: 100;
-
-  .topic-progress {
-    height: 4px;
-    background: var(--pg-bg-tertiary);
-    border-radius: 2px;
-
-    .bg {
-      background: var(--pg-pistachio);
-      border-radius: 2px;
-    }
-  }
-}
-
-// ============================================
-// Notifications - Mobile
-// ============================================
-
-.notifications {
-  .notification {
-    padding: 12px;
-
-    .notification-body {
-      font-size: 0.9em;
-    }
-  }
-}
-
-// ============================================
-// Tap Highlights
-// ============================================
-
-a,
-button,
-.btn {
-  -webkit-tap-highlight-color: rgba(147, 197, 114, 0.2);
-}
-
-// ============================================
-// Prevent Horizontal Scroll
-// ============================================
-
-html,
-body {
-  overflow-x: hidden;
-}
-
-// ============================================
-// Safe Area Insets (for notched devices)
+// Safe Area (notched devices)
 // ============================================
 
 @supports (padding: env(safe-area-inset-bottom)) {
@@ -362,9 +87,5 @@ body {
 
   #reply-control {
     padding-bottom: env(safe-area-inset-bottom);
-  }
-
-  .topic-progress-wrapper {
-    padding-bottom: calc(8px + env(safe-area-inset-bottom));
   }
 }
