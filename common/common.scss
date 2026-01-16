@@ -274,8 +274,7 @@ html.dark-scheme {
 // Ensure content inside main-outlet has proper spacing
 #main-outlet > .container,
 #main-outlet > .list-container,
-#main-outlet > .topic-list,
-.contents.ember-view {
+#main-outlet > .topic-list {
   padding-left: 0; // Reset any negative margins
   margin-left: 0;
 }
