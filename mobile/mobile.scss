@@ -6,7 +6,26 @@
 
 #site-logo,
 .logo-big {
-  max-height: 40px;
+  max-height: 45px !important;
+  height: 45px !important;
+}
+
+// Mode toggle smaller on mobile
+.color-scheme-toggler,
+[data-toggle-dark-mode] {
+  min-width: 100px !important;
+  padding: 6px 12px !important;
+  font-size: 0.75rem !important;
+}
+
+// ============================================
+// Main Content
+// ============================================
+
+#main-outlet {
+  margin: 8px;
+  padding: 16px;
+  border-radius: 12px;
 }
 
 // ============================================
@@ -16,14 +35,21 @@
 .topic-list {
   .topic-list-item {
     td {
-      padding: 12px 8px;
+      padding: 14px 12px;
     }
 
     .main-link {
       .title {
-        font-size: 1em;
+        font-size: 0.95rem;
         line-height: 1.4;
       }
+    }
+
+    // Smaller left border accent on mobile
+    &::before {
+      width: 3px;
+      top: 6px;
+      bottom: 6px;
     }
   }
 }
@@ -34,7 +60,7 @@
 
 .post-stream {
   .topic-post {
-    padding: 14px;
+    padding: 16px;
 
     .topic-avatar {
       .avatar {

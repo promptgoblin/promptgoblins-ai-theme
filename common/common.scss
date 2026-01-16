@@ -1,69 +1,69 @@
 // Prompt Goblins Theme - Common Styles
-// Uses Discourse's native CSS custom properties
+// Matching the Lovable mockup design
 
 // ============================================
-// Root Overrides
+// Custom Properties
 // ============================================
 
 :root {
-  // Border radius
-  --d-border-radius: 8px;
-  --d-border-radius-large: 12px;
-
-  // Our custom additions
+  // Brand colors
   --pg-pistachio: #93C572;
   --pg-pistachio-hover: #7FB562;
-  --pg-cyan: #3DBFBF;
-  --pg-terminal-green: #7FD87F;
+  --pg-pistachio-light: rgba(147, 197, 114, 0.15);
+  --pg-cyan: #00B894;
+  --pg-teal: #74B9B0;
 
-  // Fonts
-  --font-family-headings: 'Space Grotesk', system-ui, -apple-system, sans-serif;
-  --font-family-mono: 'IBM Plex Mono', 'SF Mono', 'Fira Code', monospace;
+  // Category colors (from mockup)
+  --pg-cat-prompt-engineering: #93C572;
+  --pg-cat-ai-agents: #00B894;
+  --pg-cat-models: #9B59B6;
+  --pg-cat-tools: #E17055;
+  --pg-cat-general: #636E72;
+
+  // Border radius
+  --pg-radius-sm: 6px;
+  --pg-radius-md: 8px;
+  --pg-radius-lg: 12px;
+  --pg-radius-xl: 16px;
+  --pg-radius-pill: 50px;
+
+  // Shadows
+  --pg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --pg-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --pg-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
 // ============================================
-// Typography
+// Typography - JetBrains Mono (readable terminal font)
 // ============================================
 
-html {
-  font-family: 'Space Grotesk', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+html, body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6,
 .title,
 .topic-title,
-.category-name {
-  font-family: var(--font-family-headings);
+.category-name,
+.username {
   font-weight: 600;
+  letter-spacing: -0.01em;
 }
 
-code, pre, .cooked code, .d-editor-preview code {
-  font-family: var(--font-family-mono);
-}
-
-// Make the welcome title use the heading font
-.welcome-banner h1 {
-  font-family: var(--font-family-headings);
-  font-weight: 700;
+code, pre, .d-editor-input, kbd {
+  font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', 'Consolas', monospace;
 }
 
 // ============================================
-// Body & Background
+// Page Background
 // ============================================
 
-html {
-  background-color: var(--secondary);
-}
-
-body {
-  background-color: var(--secondary);
-}
-
-// Main content wrapper
-#main-outlet-wrapper,
-#main-outlet,
-.wrap {
-  background-color: transparent;
+html, body {
+  background-color: var(--header_background) !important;
 }
 
 // ============================================
@@ -72,77 +72,89 @@ body {
 
 .d-header-wrap {
   background-color: var(--header_background);
-  border-bottom: 1px solid var(--primary-low);
+  border-bottom: none;
   box-shadow: none;
 }
 
 .d-header {
   background-color: transparent;
 
+  .wrap {
+    padding: 12px 0;
+  }
+
   .d-header-icons {
     .icon {
-      border-radius: 8px;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--pg-radius-md);
 
-      &:hover,
-      &:focus {
-        background-color: var(--primary-low);
+      &:hover, &:focus {
+        background-color: var(--hover);
       }
 
       .d-icon {
         color: var(--header_primary);
+        font-size: 1.1rem;
       }
     }
   }
 }
 
-// Logo
+// Logo - BIGGER
 #site-logo,
-.logo-big {
-  max-height: 50px;
+.logo-big,
+.d-header .logo-big,
+.d-header #site-logo {
+  max-height: 80px !important;
+  height: 80px !important;
 }
 
 // ============================================
-// Buttons
+// Mode Toggle Button (Goblin Mode / Chill Mode)
 // ============================================
 
-.btn-primary,
-.btn.btn-primary {
-  background-color: var(--quaternary);
-  border-color: var(--quaternary);
-  color: #fff;
-  border-radius: 8px;
+// Target the color scheme toggle
+.btn.btn-flat.btn-icon.no-text.color-scheme-toggler,
+.d-header-icons .color-scheme-toggler,
+[data-toggle-dark-mode] {
+  width: auto !important;
+  min-width: 130px;
+  padding: 8px 16px !important;
+  border-radius: var(--pg-radius-pill) !important;
+  background-color: var(--pg-pistachio) !important;
+  border: none !important;
   font-weight: 600;
-
-  &:hover,
-  &:focus {
-    background-color: var(--pg-pistachio-hover);
-    border-color: var(--pg-pistachio-hover);
-  }
+  font-size: 0.85rem;
+  transition: all 0.2s ease;
 
   .d-icon {
-    color: #fff;
+    display: none !important;
   }
-}
 
-.btn-default,
-.btn.btn-default {
-  border-radius: 8px;
-
-  &:hover {
-    background-color: var(--primary-low);
+  &::after {
+    color: #fff !important;
   }
-}
-
-// Sign up / Login buttons
-.sign-up-button,
-.login-button {
-  background-color: var(--quaternary) !important;
-  color: #fff !important;
-  border-radius: 8px !important;
-  font-weight: 600;
 
   &:hover {
     background-color: var(--pg-pistachio-hover) !important;
+    transform: translateY(-1px);
+  }
+}
+
+// Light mode: show "Chill Mode"
+html:not(.dark-scheme) {
+  .color-scheme-toggler::after,
+  [data-toggle-dark-mode]::after {
+    content: "Chill Mode" !important;
+  }
+}
+
+// Dark mode: show "Goblin Mode"
+html.dark-scheme {
+  .color-scheme-toggler::after,
+  [data-toggle-dark-mode]::after {
+    content: "Goblin Mode" !important;
   }
 }
 
@@ -150,35 +162,36 @@ body {
 // Sidebar
 // ============================================
 
-.sidebar-wrapper {
-  background-color: var(--primary-very-low);
-  border-right: 1px solid var(--primary-low);
-  padding: 16px 8px;
+.sidebar-wrapper,
+.sidebar-container {
+  background-color: var(--header_background) !important;
+  border-right: none;
 }
 
-// Sidebar container
-.sidebar-container {
-  background-color: var(--primary-very-low);
+// Hide sidebar background when collapsed
+.has-sidebar-page.sidebar-hidden {
+  .sidebar-wrapper {
+    display: none;
+  }
 }
 
 .sidebar-section-link-wrapper {
   .sidebar-section-link {
-    border-radius: 8px;
-    margin: 2px 8px;
+    border-radius: var(--pg-radius-md);
+    padding: 10px 12px;
+    margin: 2px 0;
+    font-weight: 500;
+    transition: all 0.15s ease;
 
     &:hover {
-      background-color: var(--primary-low);
+      background-color: var(--hover);
     }
 
     &.active {
-      background-color: var(--quaternary);
+      background-color: var(--pg-pistachio);
       color: #fff;
 
-      .sidebar-section-link-prefix {
-        color: #fff;
-      }
-
-      .d-icon {
+      .d-icon, .sidebar-section-link-prefix {
         color: #fff;
       }
     }
@@ -189,193 +202,136 @@ body {
   .sidebar-section-header {
     color: var(--primary-medium);
     font-weight: 700;
-    font-size: 0.75em;
+    font-size: 0.7rem;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.08em;
+    padding: 16px 12px 8px;
   }
-}
-
-// Sidebar "Topics" button at top
-.sidebar-sections__wrapper {
-  .sidebar-section-link.active,
-  .btn.active {
-    background-color: var(--quaternary) !important;
-    color: #fff !important;
-  }
-}
-
-// ============================================
-// Navigation Pills
-// ============================================
-
-.nav-pills {
-  > li {
-    > a {
-      border-radius: 8px;
-
-      &:hover {
-        background-color: var(--primary-low);
-      }
-
-      &.active {
-        background-color: var(--quaternary);
-        color: #fff;
-      }
-    }
-  }
-}
-
-// List controls nav
-.list-controls {
-  .nav-pills {
-    .nav-item {
-      a {
-        border-radius: 8px;
-        padding: 8px 16px;
-        font-weight: 500;
-
-        &.active {
-          background-color: var(--quaternary);
-          color: #fff;
-        }
-      }
-    }
-  }
-
-  // Categories and tags dropdowns
-  .category-drop,
-  .tag-drop {
-    .select-kit-header {
-      background-color: var(--primary-very-low);
-      border: 1px solid var(--primary-low);
-      border-radius: 8px;
-      padding: 8px 12px;
-    }
-  }
-}
-
-// Navigation container styling
-.navigation-container {
-  margin-bottom: 16px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--primary-low);
 }
 
 // ============================================
 // Main Content Area
 // ============================================
 
-// Main content wrapper - give it a different background
+#main-outlet-wrapper {
+  background-color: var(--header_background);
+}
+
 #main-outlet {
   background-color: var(--secondary);
-  padding: 24px;
+  border-radius: var(--pg-radius-xl);
   margin: 16px;
-  border-radius: 16px;
-  border: 1px solid var(--primary-low);
-}
-
-// Ensure there's proper spacing inside main content
-.navigation-topics,
-.navigation-categories {
-  .contents {
-    padding: 0 8px;
-  }
-}
-
-// List controls (categories dropdown, Latest/Hot/Categories tabs)
-.list-controls {
-  padding: 0 8px 16px 8px;
-  margin-bottom: 16px;
-}
-
-// Welcome banner
-.welcome-banner {
-  background-color: var(--primary-very-low);
-  border-radius: 12px;
+  margin-left: 0;
   padding: 24px;
-  margin: 0 8px 20px 8px;
-  border: 1px solid var(--primary-low);
+  min-height: calc(100vh - 150px);
+}
 
-  h1 {
-    color: var(--primary);
+// When sidebar is hidden, add left margin
+.sidebar-hidden #main-outlet {
+  margin-left: 16px;
+}
+
+// ============================================
+// Navigation Pills (Latest, Top, Categories, etc.)
+// ============================================
+
+.navigation-container {
+  margin-bottom: 20px;
+}
+
+.nav-pills {
+  > li > a,
+  .nav-item a {
+    border-radius: var(--pg-radius-md);
+    padding: 8px 16px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.15s ease;
+
+    &:hover {
+      background-color: var(--hover);
+    }
+
+    &.active {
+      background-color: var(--pg-pistachio);
+      color: #fff;
+    }
   }
 }
 
-// Footer message (no more topics)
-.footer-message {
-  margin: 16px 8px;
-  padding: 16px;
-  background-color: var(--primary-very-low);
-  border-radius: 8px;
+// Category/Tag dropdowns
+.select-kit.combo-box .select-kit-header {
+  border-radius: var(--pg-radius-md);
+  border: 1px solid var(--primary-low);
+  background-color: var(--secondary);
+
+  &:hover {
+    border-color: var(--primary-low-mid);
+  }
 }
 
 // ============================================
 // Topic List
 // ============================================
 
-// Topic list container
-.topic-list-container {
-  background-color: var(--primary-very-low);
-  border-radius: 12px;
-  padding: 16px;
-  margin: 0 8px;
-  border: 1px solid var(--primary-low);
-}
-
 .topic-list {
-  background-color: transparent;
   border-collapse: separate;
   border-spacing: 0 8px;
 
   .topic-list-header {
-    background-color: transparent;
-    border-bottom: none;
-
     th {
+      background-color: transparent;
       color: var(--primary-medium);
       font-weight: 600;
-      font-size: 0.85em;
+      font-size: 0.75rem;
       text-transform: uppercase;
-      letter-spacing: 0.5px;
-      padding: 8px 12px;
+      letter-spacing: 0.05em;
+      padding: 8px 16px;
+      border: none;
     }
   }
 
   .topic-list-body {
     .topic-list-item {
       background-color: var(--secondary);
-      border-radius: 12px;
-      border: 1px solid var(--primary-low);
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-      transition: box-shadow 0.2s ease, transform 0.2s ease;
+      border-radius: var(--pg-radius-lg);
+      box-shadow: var(--pg-shadow-sm);
+      transition: all 0.2s ease;
+      position: relative;
+
+      // Colorful left border accent (like mockup)
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 8px;
+        bottom: 8px;
+        width: 4px;
+        border-radius: 0 4px 4px 0;
+        background-color: var(--pg-pistachio);
+      }
 
       &:hover {
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        transform: translateY(-1px);
+        box-shadow: var(--pg-shadow-md);
+        transform: translateY(-2px);
       }
 
       td {
-        padding: 16px 12px;
-        border-top: none;
-        border-bottom: none;
+        padding: 16px;
+        border: none;
+        vertical-align: middle;
 
         &:first-child {
-          border-top-left-radius: 12px;
-          border-bottom-left-radius: 12px;
+          border-radius: var(--pg-radius-lg) 0 0 var(--pg-radius-lg);
+          padding-left: 20px;
         }
 
         &:last-child {
-          border-top-right-radius: 12px;
-          border-bottom-right-radius: 12px;
+          border-radius: 0 var(--pg-radius-lg) var(--pg-radius-lg) 0;
         }
       }
     }
   }
-}
-
-// Topic list table wrapper
-table.topic-list {
-  margin-top: 0;
 }
 
 // Topic titles
@@ -383,17 +339,26 @@ table.topic-list {
 .topic-list .main-link a.title {
   color: var(--primary);
   font-weight: 600;
+  font-size: 1rem;
+  line-height: 1.4;
 
   &:hover {
-    color: var(--quaternary);
+    color: var(--pg-pistachio);
   }
 }
 
-// Topic excerpts
+// Topic excerpt
 .topic-excerpt {
   color: var(--primary-medium);
-  font-size: 0.9em;
-  margin-top: 5px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-top: 6px;
+}
+
+// Remove any gradient overlays
+.topic-list-item .topic-excerpt::after,
+.topic-excerpt::after {
+  display: none !important;
 }
 
 // ============================================
@@ -403,14 +368,114 @@ table.topic-list {
 .badge-category__wrapper {
   .badge-category {
     padding: 4px 10px;
-    border-radius: 6px;
+    border-radius: var(--pg-radius-sm);
     font-weight: 600;
-    font-size: 0.8em;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
   }
 }
 
 .badge-category-bg {
-  border-radius: 6px;
+  border-radius: var(--pg-radius-sm);
+}
+
+// Hot/Pinned badges
+.topic-post-badges .badge-notification {
+  background-color: var(--danger);
+  color: #fff;
+  border-radius: var(--pg-radius-sm);
+  padding: 2px 6px;
+  font-size: 0.7rem;
+  font-weight: 600;
+}
+
+// ============================================
+// Buttons
+// ============================================
+
+.btn {
+  border-radius: var(--pg-radius-md);
+  font-weight: 600;
+  transition: all 0.15s ease;
+
+  &:active {
+    transform: scale(0.98);
+  }
+}
+
+.btn-primary,
+.btn.btn-primary,
+#create-topic {
+  background-color: var(--pg-pistachio) !important;
+  border-color: var(--pg-pistachio) !important;
+  color: #fff !important;
+
+  &:hover, &:focus {
+    background-color: var(--pg-pistachio-hover) !important;
+    border-color: var(--pg-pistachio-hover) !important;
+    box-shadow: 0 4px 12px rgba(147, 197, 114, 0.3);
+  }
+
+  .d-icon {
+    color: #fff !important;
+  }
+}
+
+.btn-default,
+.btn.btn-default {
+  background-color: var(--secondary);
+  border: 1px solid var(--primary-low);
+  color: var(--primary);
+
+  &:hover {
+    background-color: var(--hover);
+    border-color: var(--primary-low-mid);
+  }
+}
+
+// Sign up / Login
+.sign-up-button {
+  background-color: var(--pg-pistachio) !important;
+  color: #fff !important;
+  border-radius: var(--pg-radius-md) !important;
+
+  &:hover {
+    background-color: var(--pg-pistachio-hover) !important;
+  }
+}
+
+.login-button {
+  border: 1px solid var(--primary-low) !important;
+  background-color: transparent !important;
+  color: var(--primary) !important;
+  border-radius: var(--pg-radius-md) !important;
+
+  &:hover {
+    background-color: var(--hover) !important;
+  }
+}
+
+// ============================================
+// Posts
+// ============================================
+
+.post-stream {
+  .topic-post {
+    background-color: var(--secondary);
+    border-radius: var(--pg-radius-lg);
+    margin-bottom: 16px;
+    padding: 20px;
+    box-shadow: var(--pg-shadow-sm);
+
+    .topic-body {
+      border: none;
+    }
+  }
+}
+
+.topic-body {
+  background-color: transparent;
 }
 
 // ============================================
@@ -418,56 +483,27 @@ table.topic-list {
 // ============================================
 
 .category-list {
-  background-color: transparent;
+  .category {
+    background-color: var(--secondary);
+    border-radius: var(--pg-radius-lg);
+    margin-bottom: 12px;
+    box-shadow: var(--pg-shadow-sm);
+    overflow: hidden;
 
-  tbody {
-    tr {
-      background-color: var(--secondary);
-      border: 1px solid var(--primary-low);
-      border-radius: 12px;
-      margin-bottom: 12px;
-
-      &:hover {
-        background-color: var(--primary-very-low);
-      }
+    &:hover {
+      box-shadow: var(--pg-shadow-md);
     }
   }
 }
 
-// Category boxes
 .category-box {
   background-color: var(--secondary);
   border: 1px solid var(--primary-low);
-  border-radius: 12px;
+  border-radius: var(--pg-radius-lg);
 
   &:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: var(--pg-shadow-md);
   }
-}
-
-// ============================================
-// Cards & Containers
-// ============================================
-
-.topic-body {
-  background-color: var(--secondary);
-}
-
-.post-stream {
-  .topic-post {
-    background-color: var(--secondary);
-    border-radius: 12px;
-    margin-bottom: 16px;
-    border: 1px solid var(--primary-low);
-  }
-}
-
-// User cards
-.user-card,
-.group-card {
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--primary-low);
 }
 
 // ============================================
@@ -475,74 +511,41 @@ table.topic-list {
 // ============================================
 
 .search-menu {
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  border: 1px solid var(--primary-low);
-}
-
-.search-input {
-  border-radius: 8px;
+  border-radius: var(--pg-radius-lg);
+  box-shadow: var(--pg-shadow-lg);
   border: 1px solid var(--primary-low);
   background-color: var(--secondary);
-
-  &:focus-within {
-    border-color: var(--quaternary);
-    box-shadow: 0 0 0 3px rgba(147, 197, 114, 0.2);
-  }
+  overflow: hidden;
 }
 
-// Welcome banner search
-.welcome-banner {
-  .search-banner {
-    input[type="text"] {
-      border-radius: 8px;
-      border: 1px solid var(--primary-low);
-
-      &:focus {
-        border-color: var(--quaternary);
-        box-shadow: 0 0 0 3px rgba(147, 197, 114, 0.2);
-      }
-    }
-  }
-}
-
-// ============================================
-// Code Blocks
-// ============================================
-
-code {
-  background-color: var(--primary-very-low);
-  border-radius: 4px;
-  padding: 2px 6px;
-  color: var(--pg-terminal-green);
-  font-family: "SF Mono", "Fira Code", "Monaco", "Consolas", monospace;
-}
-
-pre {
-  background-color: var(--primary-very-low);
-  border-radius: 8px;
+.search-input,
+input[type="text"],
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea {
+  border-radius: var(--pg-radius-md);
   border: 1px solid var(--primary-low);
-  padding: 16px;
+  background-color: var(--secondary);
+  padding: 10px 14px;
+  transition: all 0.15s ease;
 
-  code {
-    background: transparent;
-    padding: 0;
+  &:focus {
+    border-color: var(--pg-pistachio);
+    box-shadow: 0 0 0 3px var(--pg-pistachio-light);
+    outline: none;
   }
 }
 
-// ============================================
-// Tags
-// ============================================
+// Header search
+.d-header .search-input input {
+  background-color: var(--hover);
+  border: none;
+  border-radius: var(--pg-radius-pill);
 
-.discourse-tag {
-  background-color: var(--primary-very-low);
-  border-radius: 6px;
-  padding: 3px 8px;
-  font-size: 0.85em;
-
-  &:hover {
-    background-color: var(--quaternary);
-    color: #fff;
+  &:focus {
+    background-color: var(--secondary);
+    box-shadow: 0 0 0 2px var(--pg-pistachio-light);
   }
 }
 
@@ -552,19 +555,39 @@ pre {
 
 .menu-panel,
 .user-menu,
-.hamburger-panel {
-  border-radius: 12px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+.hamburger-panel,
+.select-kit-body {
+  border-radius: var(--pg-radius-lg);
+  box-shadow: var(--pg-shadow-lg);
   border: 1px solid var(--primary-low);
   background-color: var(--secondary);
+  overflow: hidden;
 }
 
-.select-kit .select-kit-collection {
-  border-radius: 8px;
+.select-kit .select-kit-row {
+  border-radius: var(--pg-radius-sm);
+  margin: 2px 4px;
+
+  &:hover, &.is-highlighted {
+    background-color: var(--hover);
+  }
+
+  &.is-selected {
+    background-color: var(--pg-pistachio);
+    color: #fff;
+  }
 }
 
-.select-kit.dropdown-select-box .dropdown-select-box-header {
-  border-radius: 8px;
+// ============================================
+// User Cards
+// ============================================
+
+.user-card,
+.group-card {
+  border-radius: var(--pg-radius-xl);
+  box-shadow: var(--pg-shadow-lg);
+  border: 1px solid var(--primary-low);
+  background-color: var(--secondary);
 }
 
 // ============================================
@@ -572,18 +595,21 @@ pre {
 // ============================================
 
 .modal-inner-container {
-  border-radius: 16px;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15);
+  border-radius: var(--pg-radius-xl);
+  box-shadow: var(--pg-shadow-lg);
+  background-color: var(--secondary);
 }
 
 .modal-header {
-  border-top-left-radius: 16px;
-  border-top-right-radius: 16px;
+  border-radius: var(--pg-radius-xl) var(--pg-radius-xl) 0 0;
+  background-color: var(--secondary);
+  border-bottom: 1px solid var(--primary-low);
 }
 
 .modal-footer {
-  border-bottom-left-radius: 16px;
-  border-bottom-right-radius: 16px;
+  border-radius: 0 0 var(--pg-radius-xl) var(--pg-radius-xl);
+  background-color: var(--hover);
+  border-top: 1px solid var(--primary-low);
 }
 
 // ============================================
@@ -591,22 +617,62 @@ pre {
 // ============================================
 
 #reply-control {
-  border-radius: 12px 12px 0 0;
+  border-radius: var(--pg-radius-xl) var(--pg-radius-xl) 0 0;
   border: 1px solid var(--primary-low);
   border-bottom: none;
-
-  .reply-to {
-    background-color: var(--primary-very-low);
-    border-radius: 8px 8px 0 0;
-  }
+  background-color: var(--secondary);
+  box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 
   .d-editor-textarea-wrapper {
-    border-radius: 8px;
+    border-radius: var(--pg-radius-md);
+    border: 1px solid var(--primary-low);
 
     &:focus-within {
-      border-color: var(--quaternary);
-      box-shadow: 0 0 0 3px rgba(147, 197, 114, 0.2);
+      border-color: var(--pg-pistachio);
+      box-shadow: 0 0 0 3px var(--pg-pistachio-light);
     }
+  }
+}
+
+// ============================================
+// Code Blocks
+// ============================================
+
+code {
+  background-color: var(--hover);
+  border-radius: var(--pg-radius-sm);
+  padding: 2px 6px;
+  font-size: 0.9em;
+}
+
+pre {
+  background-color: var(--hover);
+  border-radius: var(--pg-radius-md);
+  border: 1px solid var(--primary-low);
+  padding: 16px;
+
+  code {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
+// ============================================
+// Tags
+// ============================================
+
+.discourse-tag {
+  background-color: var(--hover);
+  border-radius: var(--pg-radius-sm);
+  padding: 3px 8px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  transition: all 0.15s ease;
+
+  &:hover {
+    background-color: var(--pg-pistachio);
+    color: #fff;
   }
 }
 
@@ -618,16 +684,68 @@ pre {
   border-radius: 50%;
 }
 
+// Letter avatars styling
+.avatar-flair,
+.avatar-placeholder {
+  border-radius: 50%;
+}
+
 // ============================================
 // Links
 // ============================================
 
 a {
   color: var(--tertiary);
+  text-decoration: none;
 
   &:hover {
-    color: var(--tertiary-hover);
+    color: var(--pg-pistachio);
   }
+}
+
+// Topic links shouldn't be colored
+.topic-list-item .main-link a,
+.topic-title a {
+  color: var(--primary);
+
+  &:hover {
+    color: var(--pg-pistachio);
+  }
+}
+
+// ============================================
+// Alerts & Notices
+// ============================================
+
+.alert {
+  border-radius: var(--pg-radius-md);
+  border: 1px solid var(--primary-low);
+}
+
+.alert-info {
+  background-color: var(--pg-pistachio-light);
+  border-color: var(--pg-pistachio);
+}
+
+// ============================================
+// Footer Messages
+// ============================================
+
+.footer-message {
+  background-color: var(--hover);
+  border-radius: var(--pg-radius-lg);
+  padding: 20px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+// ============================================
+// Loading States
+// ============================================
+
+.spinner {
+  border-color: var(--pg-pistachio);
+  border-right-color: transparent;
 }
 
 // ============================================
@@ -635,7 +753,7 @@ a {
 // ============================================
 
 *:focus-visible {
-  outline: 2px solid var(--quaternary);
+  outline: 2px solid var(--pg-pistachio);
   outline-offset: 2px;
 }
 
@@ -644,7 +762,7 @@ a {
 // ============================================
 
 ::selection {
-  background: rgba(147, 197, 114, 0.3);
+  background: var(--pg-pistachio-light);
   color: inherit;
 }
 
@@ -653,17 +771,18 @@ a {
 // ============================================
 
 ::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--primary-very-low);
+  background: var(--hover);
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
   background: var(--primary-low);
-  border-radius: 5px;
+  border-radius: 4px;
 
   &:hover {
     background: var(--primary-medium);
@@ -671,82 +790,60 @@ a {
 }
 
 // ============================================
-// Footer
+// Dark Mode Specific Adjustments
 // ============================================
 
-.footer-links {
-  background-color: var(--secondary);
-}
+html.dark-scheme {
+  // Deeper shadows for dark mode
+  --pg-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.2);
+  --pg-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
+  --pg-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.3);
 
-// ============================================
-// Alerts & Notices
-// ============================================
-
-.alert {
-  border-radius: 8px;
-}
-
-// ============================================
-// Loading
-// ============================================
-
-.spinner {
-  border-color: var(--quaternary);
-  border-right-color: transparent;
-}
-
-// ============================================
-// Custom Mode Toggle (Goblin Mode / Chill Mode)
-// ============================================
-
-// Style the theme toggle button
-.d-header-icons .color-scheme-toggler,
-.d-header-icons [data-toggle-dark-mode],
-.d-header-icons .btn-flat.toggle-dark {
-  position: relative;
-  min-width: 120px;
-  padding: 8px 16px !important;
-  border-radius: 20px !important;
-  background-color: var(--primary-low) !important;
-  border: 1px solid var(--primary-low-mid) !important;
-  font-family: var(--font-family-headings);
-  font-weight: 600;
-  font-size: 0.85em;
-
-  // Hide the default icon
-  .d-icon {
-    display: none;
+  // Topic list cards need subtle borders in dark mode
+  .topic-list .topic-list-body .topic-list-item {
+    border: 1px solid var(--primary-low);
   }
+}
 
-  // Add custom text
-  &::after {
-    content: "Chill Mode";
-    color: var(--primary);
-  }
+// ============================================
+// Stats Bar (like mockup at top)
+// ============================================
 
-  &:hover {
-    background-color: var(--quaternary) !important;
+.custom-homepage-banner {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  padding: 12px 0;
+  margin-bottom: 20px;
+  color: var(--primary-medium);
+  font-size: 0.9rem;
 
-    &::after {
-      color: #fff;
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    .value {
+      font-weight: 600;
+      color: var(--primary);
     }
   }
 }
 
-// When in light mode, show "Chill Mode" (to switch to dark)
-html:not(.dark-scheme) {
-  .d-header-icons .color-scheme-toggler::after,
-  .d-header-icons [data-toggle-dark-mode]::after,
-  .d-header-icons .btn-flat.toggle-dark::after {
-    content: "Chill Mode 🌙";
-  }
-}
+// ============================================
+// Responsive Adjustments
+// ============================================
 
-// When in dark mode, show "Goblin Mode" (to switch to light)
-html.dark-scheme {
-  .d-header-icons .color-scheme-toggler::after,
-  .d-header-icons [data-toggle-dark-mode]::after,
-  .d-header-icons .btn-flat.toggle-dark::after {
-    content: "Goblin Mode ☀️";
+@media (max-width: 768px) {
+  #main-outlet {
+    margin: 8px;
+    padding: 16px;
+    border-radius: var(--pg-radius-lg);
+  }
+
+  #site-logo,
+  .logo-big {
+    max-height: 50px !important;
+    height: 50px !important;
   }
 }

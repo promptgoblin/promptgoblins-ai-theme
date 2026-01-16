@@ -1,36 +1,36 @@
 {
   "name": "Prompt Goblins",
-  "about_url": "https://github.com/your-username/prompt-goblins-theme",
-  "license_url": "https://github.com/your-username/prompt-goblins-theme/blob/main/LICENSE",
+  "about_url": "https://github.com/promptgoblin/promptgoblins-ai-theme",
+  "license_url": "https://github.com/promptgoblin/promptgoblins-ai-theme/blob/main/LICENSE",
   "component": false,
   "color_schemes": {
     "Goblin Mode": {
-      "primary": "2D2D2D",
-      "secondary": "F5F5DC",
-      "tertiary": "3DBFBF",
+      "primary": "2D3436",
+      "secondary": "FFFFFF",
+      "tertiary": "00B894",
       "quaternary": "93C572",
-      "header_background": "F5F5DC",
-      "header_primary": "2D2D2D",
+      "header_background": "F0F0EC",
+      "header_primary": "2D3436",
       "highlight": "93C572",
-      "danger": "E45735",
+      "danger": "E17055",
       "success": "93C572",
-      "love": "FA6C8D",
-      "hover": "EAEACF",
-      "selected": "E5E5C8"
+      "love": "E84393",
+      "hover": "E8E8E4",
+      "selected": "DFE6E9"
     },
     "Chill Mode": {
-      "primary": "E8E8EC",
-      "secondary": "1A1B2E",
-      "tertiary": "5FAAAA",
+      "primary": "DFE6E9",
+      "secondary": "1E1E2E",
+      "tertiary": "74B9B0",
       "quaternary": "93C572",
-      "header_background": "1A1B2E",
-      "header_primary": "E8E8EC",
+      "header_background": "1E1E2E",
+      "header_primary": "DFE6E9",
       "highlight": "93C572",
-      "danger": "E45735",
+      "danger": "E17055",
       "success": "93C572",
-      "love": "FA6C8D",
-      "hover": "252640",
-      "selected": "2D2E4A"
+      "love": "E84393",
+      "hover": "2D2D44",
+      "selected": "353550"
     }
   },
   "assets": {
