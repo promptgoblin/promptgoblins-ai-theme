@@ -142,11 +142,34 @@ html, body {
   width: auto !important;
 }
 
-// Small logo (when topic title is shown)
+// Small logo (when topic title is shown) - keep same size as big logo
 .d-header .logo-small,
 #site-logo.logo-small {
-  max-height: 50px !important;
+  max-height: 110px !important;
   height: auto !important;
+  width: auto !important;
+}
+
+// Topic title in header (when scrolled)
+.d-header .extra-info-wrapper,
+.d-header .extra-info {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.d-header .topic-link {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--header_primary);
+  max-width: 500px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.d-header .extra-info .badge-category__wrapper {
+  margin-left: 12px;
 }
 
 // ============================================
