@@ -295,11 +295,13 @@ html.dark-scheme {
 }
 
 // Ensure content inside main-outlet has proper spacing
-#main-outlet > .container,
-#main-outlet > .list-container,
-#main-outlet > .topic-list {
-  padding-left: 0; // Reset any negative margins
-  margin-left: 0;
+// Add left margin to key content elements for visible separation
+.list-controls,
+.navigation-container,
+.topic-list,
+.category-list,
+.latest-topic-list {
+  margin-left: 8px;
 }
 
 // ============================================
