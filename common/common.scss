@@ -92,14 +92,22 @@ html, body {
   .wrap {
     padding: 16px 0;
     min-height: 140px;
+  }
+
+  // The actual flex container is .contents, not .wrap
+  .contents {
     display: flex;
     align-items: center;
-    justify-content: space-between; // Push icons to the right
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  // Push the panel (with icons) to the right
+  .panel {
+    margin-left: auto !important;
   }
 
   .d-header-icons {
-    margin-left: auto; // Ensure icons stay on right
-
     .icon {
       width: 40px;
       height: 40px;
@@ -254,12 +262,22 @@ html.dark-scheme {
   margin: 16px;
   margin-left: 0;
   padding: 24px;
+  padding-left: 28px; // Extra left padding for content spacing
   min-height: calc(100vh - 150px);
 }
 
 // When sidebar is hidden, add left margin
 .sidebar-hidden #main-outlet {
   margin-left: 16px;
+}
+
+// Ensure content inside main-outlet has proper spacing
+#main-outlet > .container,
+#main-outlet > .list-container,
+#main-outlet > .topic-list,
+.contents.ember-view {
+  padding-left: 0; // Reset any negative margins
+  margin-left: 0;
 }
 
 // ============================================
