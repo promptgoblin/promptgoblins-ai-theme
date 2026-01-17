@@ -293,6 +293,18 @@ html.dark-scheme {
   min-height: calc(100vh - 150px);
 }
 
+// When sidebar is hidden (collapsed), ensure content is properly centered
+.sidebar-hidden {
+  #main-outlet-wrapper {
+    max-width: 100%;
+  }
+
+  #main-outlet {
+    margin: 16px auto;
+    max-width: 1000px; // Reasonable max-width when no sidebar
+  }
+}
+
 
 // ============================================
 // Navigation Pills (Latest, Top, Categories, etc.)
