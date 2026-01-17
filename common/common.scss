@@ -230,6 +230,12 @@ html.dark-scheme {
   border-right: none;
 }
 
+// Ensure clean separation between sidebar and main content
+.sidebar-container {
+  // Light mode: use a subtle right border for visual separation
+  border-right: 1px solid var(--primary-low);
+}
+
 // Hide sidebar background when collapsed
 .has-sidebar-page.sidebar-hidden {
   .sidebar-wrapper {
@@ -281,19 +287,17 @@ html.dark-scheme {
 
 #main-outlet {
   background-color: var(--secondary);
-  // Only round the right corners - left side touches sidebar divider
-  border-radius: 0 var(--pg-radius-xl) var(--pg-radius-xl) 0;
+  // Round all corners for a cleaner card look
+  border-radius: var(--pg-radius-xl);
   margin: 16px;
-  margin-left: -28px; // Pull left to cover the grid gap and touch sidebar
-  padding: 24px;
-  padding-left: 44px; // Compensate for negative margin + nice spacing
+  padding: 32px;
   min-height: calc(100vh - 150px);
 }
 
-// When sidebar is hidden, restore full border-radius and normal margins
+// When sidebar is hidden, keep the same clean styling
 .sidebar-hidden #main-outlet {
-  margin-left: 16px;
-  padding-left: 24px;
+  margin: 16px;
+  padding: 32px;
   border-radius: var(--pg-radius-xl);
 }
 
@@ -834,6 +838,34 @@ a {
 }
 
 // ============================================
+// Light Mode Specific Adjustments
+// ============================================
+
+html:not(.dark-scheme) {
+  // Light mode content area - subtle shadow for depth
+  #main-outlet {
+    box-shadow: var(--pg-shadow-md);
+    border: 1px solid var(--primary-low);
+  }
+
+  // Sidebar styling in light mode
+  .sidebar-wrapper,
+  .sidebar-container {
+    background-color: var(--header_background) !important;
+  }
+
+  // Topic list items in light mode get a subtle left border
+  .topic-list .topic-list-body .topic-list-item {
+    box-shadow: var(--pg-shadow-sm);
+    border: 1px solid var(--primary-low);
+
+    td:first-child {
+      border-left: 4px solid var(--pg-pistachio);
+    }
+  }
+}
+
+// ============================================
 // Dark Mode Specific Adjustments
 // ============================================
 
@@ -849,20 +881,40 @@ html.dark-scheme {
   --pg-shadow-md: 0 4px 12px rgba(0, 0, 0, 0.35);
   --pg-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.4);
 
-  // Content area with subtle contrast from sidebar/header
+  // Content area with subtle contrast from sidebar/header - more padding
   #main-outlet {
     background-color: #252540; // Slightly lighter than header (#1E1E2E)
     border: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 40px; // More breathing room in dark mode
+    margin: 20px; // More margin around the content card
+  }
+
+  // Sidebar needs subtle border in dark mode
+  .sidebar-container {
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
   }
 
   // Topic list cards need subtle borders in dark mode
   .topic-list .topic-list-body .topic-list-item {
     border: 1px solid var(--primary-low);
     background-color: #2A2A45; // Slightly different from main content
+    margin-bottom: 12px; // More spacing between topic cards
   }
 
   .topic-list .topic-list-body .topic-list-item td {
     background-color: #2A2A45;
+  }
+
+  // More spacing for topic list
+  .topic-list {
+    border-spacing: 0 12px; // Increase gap between rows
+  }
+
+  // Navigation pills need more spacing
+  .navigation-container {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   }
 
   // Fix category page headers - make them readable
@@ -923,6 +975,13 @@ html.dark-scheme {
   .cooked,
   .topic-body .cooked {
     color: var(--primary);
+  }
+
+  // Welcome message needs more prominence
+  .custom-homepage-banner,
+  .alert,
+  .global-notice {
+    margin-bottom: 24px;
   }
 }
 
