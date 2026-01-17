@@ -353,6 +353,7 @@ html.dark-scheme {
   border-collapse: separate;
   border-spacing: 0 8px;
   width: 100%;
+  table-layout: fixed; // Prevent table from overflowing container
 
   .topic-list-header {
     th {
@@ -406,6 +407,8 @@ html.dark-scheme {
 // Make the main-link column take available space
 .topic-list .main-link {
   width: 100%;
+  min-width: 0; // Allow flex child to shrink below content size
+  overflow: hidden; // Prevent content spillover
 }
 
 // Topic titles
@@ -415,6 +418,8 @@ html.dark-scheme {
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.4;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 
   &:hover {
     color: var(--pg-pistachio);
@@ -427,6 +432,9 @@ html.dark-scheme {
   font-size: 0.9rem;
   line-height: 1.5;
   margin-top: 6px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  overflow: hidden;
 }
 
 // Remove any gradient overlays
@@ -662,6 +670,14 @@ textarea {
   box-shadow: var(--pg-shadow-lg);
   border: 1px solid var(--primary-low);
   background-color: var(--secondary);
+
+  // Don't style empty/hidden state
+  &.no-bg,
+  &:empty {
+    border: none;
+    box-shadow: none;
+    background: transparent;
+  }
 }
 
 // ============================================
