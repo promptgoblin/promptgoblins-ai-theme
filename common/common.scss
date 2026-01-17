@@ -178,6 +178,19 @@ select:focus {
 }
 
 // ============================================
+// Posts - Subtle Background
+// ============================================
+
+// Light mode posts
+.topic-post {
+  background-color: rgba(0, 0, 0, 0.02); // Very subtle grey tint
+  border-radius: 8px;
+  margin-bottom: 12px;
+  padding: 16px;
+  border-left: 3px solid var(--pg-pistachio);
+}
+
+// ============================================
 // Dark Mode Adjustments
 // ============================================
 
@@ -206,5 +219,11 @@ html.dark-scheme {
 
   .sidebar-section-link-wrapper .sidebar-section-link.active {
     color: #E8F0E4;
+  }
+
+  // Dark mode posts - slightly lighter background
+  .topic-post {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-left-color: var(--pg-pistachio);
   }
 }
