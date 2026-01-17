@@ -25,19 +25,21 @@ code, pre, .d-editor-input, kbd {
 }
 
 // ============================================
-// Header - Larger Logo
+// Header - Larger Logo with Padding
 // ============================================
 
 .d-header-wrap {
-  min-height: 120px;
+  min-height: 140px;
+  padding-top: 12px; // Give the goblin's head some breathing room
 }
 
 .d-header {
-  min-height: 120px;
+  min-height: 140px;
   height: auto;
 
   .wrap {
-    min-height: 120px;
+    min-height: 140px;
+    padding-top: 8px;
   }
 }
 
@@ -45,30 +47,34 @@ code, pre, .d-editor-input, kbd {
 .logo-big,
 .d-header .logo-big,
 .d-header #site-logo {
-  max-height: 100px !important;
+  max-height: 110px !important; // 10% larger (was 100px)
   height: auto !important;
   width: auto !important;
 }
 
 .d-header .logo-small,
 #site-logo.logo-small {
-  max-height: 100px !important;
+  max-height: 110px !important;
   height: auto !important;
   width: auto !important;
 }
 
 // Mobile logo sizing
 @media (max-width: 768px) {
-  .d-header-wrap,
+  .d-header-wrap {
+    min-height: 90px;
+    padding-top: 8px;
+  }
+
   .d-header,
   .d-header .wrap {
-    min-height: 80px;
+    min-height: 90px;
   }
 
   #site-logo,
   .logo-big,
   .d-header .logo-small {
-    max-height: 60px !important;
+    max-height: 66px !important; // 10% larger (was 60px)
   }
 }
 
