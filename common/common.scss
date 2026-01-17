@@ -281,17 +281,20 @@ html.dark-scheme {
 
 #main-outlet {
   background-color: var(--secondary);
-  border-radius: var(--pg-radius-xl);
+  // Only round the right corners - left side touches sidebar divider
+  border-radius: 0 var(--pg-radius-xl) var(--pg-radius-xl) 0;
   margin: 16px;
-  margin-left: 0;
+  margin-left: -28px; // Pull left to cover the grid gap and touch sidebar
   padding: 24px;
-  padding-left: 28px; // Extra left padding for content spacing
+  padding-left: 44px; // Compensate for negative margin + nice spacing
   min-height: calc(100vh - 150px);
 }
 
-// When sidebar is hidden, add left margin
+// When sidebar is hidden, restore full border-radius and normal margins
 .sidebar-hidden #main-outlet {
   margin-left: 16px;
+  padding-left: 24px;
+  border-radius: var(--pg-radius-xl);
 }
 
 
