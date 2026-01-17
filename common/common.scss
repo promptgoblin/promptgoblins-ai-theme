@@ -252,8 +252,9 @@ html.dark-scheme {
   .cooked,
   .cooked p,
   .cooked li,
+  .cooked span,
   .post-stream {
-    color: rgba(255, 255, 255, 0.82);
+    color: rgba(255, 255, 255, 0.72) !important; // Softer, less bright
   }
 
   // Keep headings a bit brighter for hierarchy
@@ -265,6 +266,12 @@ html.dark-scheme {
   .cooked h2,
   .cooked h3,
   .cooked h4 {
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85) !important;
+  }
+
+  // Links stay visible but not too bright
+  .cooked a,
+  .topic-body a {
+    color: rgba(116, 185, 176, 0.9) !important; // Muted teal
   }
 }
