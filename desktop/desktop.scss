@@ -25,16 +25,9 @@
 // Sidebar
 // ============================================
 
+// Only style padding, let Discourse handle width and visibility
 .sidebar-wrapper {
-  width: 260px;
-  padding: 20px 16px;
-}
-
-// Ensure proper gap between sidebar and content
-.has-sidebar-page {
-  .sidebar-container + #main-outlet-wrapper {
-    margin-left: 8px;
-  }
+  padding: 16px;
 }
 
 // ============================================

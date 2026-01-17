@@ -283,34 +283,14 @@ html.dark-scheme {
 
 #main-outlet-wrapper {
   background-color: var(--header_background);
-  // Ensure proper flex layout to prevent sidebar/content overlap
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-}
-
-// Sidebar should not shrink and maintain its width
-.sidebar-wrapper {
-  flex-shrink: 0;
 }
 
 #main-outlet {
   background-color: var(--secondary);
-  // Round all corners for a cleaner card look
   border-radius: var(--pg-radius-xl);
   margin: 16px;
   padding: 32px;
   min-height: calc(100vh - 150px);
-  // Take remaining space after sidebar
-  flex: 1;
-  min-width: 0; // Prevent flex item from overflowing
-}
-
-// When sidebar is hidden, keep the same clean styling
-.sidebar-hidden #main-outlet {
-  margin: 16px;
-  padding: 32px;
-  border-radius: var(--pg-radius-xl);
 }
 
 
@@ -1057,40 +1037,7 @@ html.dark-scheme #reply-control {
 // Responsive Adjustments
 // ============================================
 
-// Tablet / intermediate widths - prevent sidebar/content overlap
-@media (max-width: 1100px) {
-  #main-outlet {
-    margin: 12px;
-    padding: 24px;
-  }
-
-  // Reduce sidebar width slightly at intermediate sizes
-  .sidebar-wrapper {
-    width: 220px;
-    padding: 12px;
-  }
-}
-
-// Smaller tablets - more aggressive adjustments
-@media (max-width: 920px) {
-  #main-outlet {
-    margin: 8px;
-    padding: 20px;
-  }
-
-  .sidebar-wrapper {
-    width: 200px;
-    padding: 10px;
-  }
-
-  // Reduce font sizes slightly
-  .sidebar-section-link-wrapper .sidebar-section-link {
-    padding: 8px 10px;
-    font-size: 0.9rem;
-  }
-}
-
-// Mobile
+// Let Discourse handle sidebar show/hide - only adjust content padding
 @media (max-width: 768px) {
   #main-outlet {
     margin: 8px;
