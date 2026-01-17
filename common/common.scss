@@ -275,3 +275,134 @@ html.dark-scheme {
     color: rgba(116, 185, 176, 0.9) !important; // Muted teal
   }
 }
+
+// ============================================
+// Post Footer - Cleaner, Less Cluttered
+// ============================================
+
+// Post action buttons - compact inline row
+.post-menu-area {
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  // Make all action buttons smaller and subtle
+  button.btn {
+    padding: 4px 8px;
+    font-size: 0.8rem;
+    opacity: 0.7;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+
+// Topic map (views, links, users) - more compact
+.topic-map {
+  margin: 12px 0;
+  padding: 8px 0;
+  border-top: 1px solid var(--primary-low);
+
+  .topic-map__contents {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .topic-map__stats {
+    display: flex;
+    gap: 16px;
+  }
+
+  // Compact stat buttons
+  button {
+    font-size: 0.8rem;
+    padding: 4px 8px;
+    opacity: 0.8;
+
+    .number {
+      font-weight: 600;
+    }
+
+    .topic-map__stat-label {
+      margin-left: 4px;
+      opacity: 0.7;
+    }
+  }
+}
+
+// Topic footer buttons - Reply prominent, others subtle
+#topic-footer-buttons {
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--primary-low);
+
+  .topic-footer-main-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+}
+
+// Topic status info (pinned, tracking) - compact & subtle
+.topic-status-info,
+.topic-timer-info {
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin: 8px 0;
+
+  // Hide verbose help text descriptions
+  .topic-timer-heading,
+  p:not(:first-child) {
+    display: none;
+  }
+}
+
+// Tracking/notification dropdown - smaller
+.topic-notifications-button {
+  .btn {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+
+  // Hide the description text after the button
+  .reason {
+    display: none;
+  }
+}
+
+// New & Unread Topics section - more compact
+.suggested-topics {
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid var(--primary-low);
+
+  // Smaller heading
+  h3 {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+
+  // Compact topic list
+  .topic-list {
+    font-size: 0.9rem;
+
+    th, td {
+      padding: 8px 12px;
+    }
+  }
+}
+
+// "Want to read more?" text - subtle
+.more-topics__browse-more {
+  font-size: 0.85rem;
+  opacity: 0.7;
+  margin-top: 12px;
+}
