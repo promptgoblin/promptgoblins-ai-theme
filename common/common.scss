@@ -240,9 +240,9 @@ html.dark-scheme {
     color: #E8F0E4;
   }
 
-  // Dark mode posts - slightly lighter background
+  // Dark mode posts - very subtle background
   .topic-post {
-    background-color: rgba(255, 255, 255, 0.03);
+    background-color: rgba(255, 255, 255, 0.015); // More muted
     border-left-color: var(--pg-pistachio);
   }
 
@@ -251,10 +251,10 @@ html.dark-scheme {
   .topic-body,
   .cooked,
   .post-stream {
-    color: rgba(255, 255, 255, 0.88); // Slightly muted white
+    color: rgba(255, 255, 255, 0.82); // More muted for less eye strain
   }
 
-  // Keep headings brighter for hierarchy
+  // Keep headings a bit brighter for hierarchy
   .topic-post h1,
   .topic-post h2,
   .topic-post h3,
@@ -263,6 +263,6 @@ html.dark-scheme {
   .cooked h2,
   .cooked h3,
   .cooked h4 {
-    color: rgba(255, 255, 255, 0.95);
+    color: rgba(255, 255, 255, 0.9);
   }
 }
