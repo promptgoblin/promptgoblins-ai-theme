@@ -242,7 +242,7 @@ html.dark-scheme {
 
   // Dark mode posts - very subtle background
   .topic-post {
-    background-color: rgba(255, 255, 255, 0.015) !important;
+    background-color: rgba(255, 255, 255, 0.015);
     border-left-color: var(--pg-pistachio);
   }
 
@@ -253,7 +253,7 @@ html.dark-scheme {
   .cooked p,
   .cooked li,
   .post-stream {
-    color: rgba(255, 255, 255, 0.82) !important;
+    color: rgba(255, 255, 255, 0.82);
   }
 
   // Keep headings a bit brighter for hierarchy
@@ -265,6 +265,6 @@ html.dark-scheme {
   .cooked h2,
   .cooked h3,
   .cooked h4 {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.9);
   }
 }
