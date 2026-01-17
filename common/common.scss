@@ -283,6 +283,15 @@ html.dark-scheme {
 
 #main-outlet-wrapper {
   background-color: var(--header_background);
+  // Ensure proper flex layout to prevent sidebar/content overlap
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+// Sidebar should not shrink and maintain its width
+.sidebar-wrapper {
+  flex-shrink: 0;
 }
 
 #main-outlet {
@@ -292,6 +301,9 @@ html.dark-scheme {
   margin: 16px;
   padding: 32px;
   min-height: calc(100vh - 150px);
+  // Take remaining space after sidebar
+  flex: 1;
+  min-width: 0; // Prevent flex item from overflowing
 }
 
 // When sidebar is hidden, keep the same clean styling
