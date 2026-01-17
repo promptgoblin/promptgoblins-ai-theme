@@ -1045,6 +1045,40 @@ html.dark-scheme #reply-control {
 // Responsive Adjustments
 // ============================================
 
+// Tablet / intermediate widths - prevent sidebar/content overlap
+@media (max-width: 1100px) {
+  #main-outlet {
+    margin: 12px;
+    padding: 24px;
+  }
+
+  // Reduce sidebar width slightly at intermediate sizes
+  .sidebar-wrapper {
+    width: 220px;
+    padding: 12px;
+  }
+}
+
+// Smaller tablets - more aggressive adjustments
+@media (max-width: 920px) {
+  #main-outlet {
+    margin: 8px;
+    padding: 20px;
+  }
+
+  .sidebar-wrapper {
+    width: 200px;
+    padding: 10px;
+  }
+
+  // Reduce font sizes slightly
+  .sidebar-section-link-wrapper .sidebar-section-link {
+    padding: 8px 10px;
+    font-size: 0.9rem;
+  }
+}
+
+// Mobile
 @media (max-width: 768px) {
   #main-outlet {
     margin: 8px;
