@@ -109,25 +109,6 @@
 }
 
 // ============================================
-// Category Heading - prevent overflow in portrait
-// ============================================
-
-.category-heading {
-  flex-wrap: wrap;
-  overflow: hidden;
-
-  .category-heading__content {
-    min-width: 0;
-    overflow: hidden;
-
-    .category-title-header {
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
-}
-
-// ============================================
 // Safe Area (notched devices)
 // ============================================
 

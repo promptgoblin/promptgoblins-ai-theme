@@ -223,6 +223,15 @@ select:focus {
   --category-header-logo-size: 92px;
 }
 
+// Prevent category heading from overflowing on narrow screens
+.category-heading {
+  .category-heading__content {
+    min-width: 0;
+    overflow: hidden;
+    word-wrap: break-word;
+  }
+}
+
 // ============================================
 // Dark Mode Adjustments
 // ============================================
