@@ -221,6 +221,7 @@ select:focus {
 // Individual category page heading (~15% bigger than /categories)
 .category-heading__logo.category-logo.aspect-image {
   --category-header-logo-size: 92px;
+  --max-height: 92px;
 }
 
 // Prevent category heading from overflowing on narrow screens
