@@ -213,9 +213,10 @@ select:focus {
 // Category Icons - Larger logos
 // ============================================
 
-.category-logo img {
-  max-height: 80px;
-  max-width: 80px;
+@supports (--custom: property) {
+  .category-logo.aspect-image {
+    --max-height: 80px;
+  }
 }
 
 // ============================================
