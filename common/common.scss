@@ -210,6 +210,24 @@ select:focus {
 }
 
 // ============================================
+// Topic List - Spacing between title, category, excerpt
+// ============================================
+
+.topic-list-item .main-link {
+  .link-top-line {
+    margin-bottom: 4px;
+  }
+
+  .link-bottom-line {
+    margin-top: 6px;
+  }
+
+  .topic-excerpt {
+    margin-top: 4px;
+  }
+}
+
+// ============================================
 // Category Icons - Larger logos
 // ============================================
 
