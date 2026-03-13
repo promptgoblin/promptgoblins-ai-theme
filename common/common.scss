@@ -256,6 +256,56 @@ select:focus {
 }
 
 // ============================================
+// AI News Sidebar Link
+// ============================================
+
+.pg-news-link {
+  padding: 8px 10px 12px;
+  margin-bottom: 4px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.pg-news-link__anchor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  background: var(--pg-pistachio-light);
+  border: 1px solid rgba(147, 197, 114, 0.3);
+  color: var(--primary) !important;
+  text-decoration: none !important;
+  font-weight: 500;
+  font-size: 0.9em;
+  transition: background 0.15s, border-color 0.15s;
+
+  &:hover {
+    background: rgba(147, 197, 114, 0.25);
+    border-color: var(--pg-pistachio);
+    color: var(--primary) !important;
+  }
+}
+
+.pg-news-link__icon {
+  font-size: 1.1em;
+  line-height: 1;
+}
+
+.pg-news-link__text {
+  flex: 1;
+}
+
+.pg-news-link__arrow {
+  opacity: 0.4;
+  transition: opacity 0.15s, transform 0.15s;
+
+  .pg-news-link__anchor:hover & {
+    opacity: 0.7;
+    transform: translateX(2px);
+  }
+}
+
+// ============================================
 // Dark Mode Adjustments
 // ============================================
 
@@ -264,6 +314,18 @@ html.dark-scheme {
   --pg-pistachio: #6B9B54;
   --pg-pistachio-hover: #5A8A46;
   --pg-pistachio-light: rgba(107, 155, 84, 0.2);
+
+  .pg-news-link {
+    border-bottom-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .pg-news-link__anchor {
+    border-color: rgba(107, 155, 84, 0.3);
+
+    &:hover {
+      border-color: var(--pg-pistachio);
+    }
+  }
 
   // Button text needs to be lighter on muted green
   .btn-primary,
