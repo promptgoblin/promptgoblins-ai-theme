@@ -1,6 +1,6 @@
 <script type="text/discourse-plugin" version="0.8">
   // AI News link at top of sidebar
-  api.onPageChange(() => {
+  function injectNewsLink() {
     if (document.querySelector('.pg-news-link')) return;
     const sidebar = document.querySelector('.sidebar-sections');
     if (!sidebar) return;
@@ -17,7 +17,13 @@
       </a>
     `;
     sidebar.insertBefore(wrapper, sidebar.firstChild);
-  });
+  }
+
+  // Try on page change, and watch for sidebar appearing via MutationObserver
+  api.onPageChange(() => setTimeout(injectNewsLink, 200));
+
+  const sidebarObserver = new MutationObserver(() => injectNewsLink());
+  sidebarObserver.observe(document.body, { childList: true, subtree: true });
 
   // Custom Goblin Mode / Chill Mode toggle
   api.onPageChange(() => {
