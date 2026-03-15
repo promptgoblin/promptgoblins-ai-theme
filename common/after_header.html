@@ -1,34 +1,4 @@
 <script type="text/discourse-plugin" version="0.8">
-  // AI News link at top of sidebar
-  function injectNewsLink() {
-    if (document.querySelector('.pg-news-link')) return;
-    // Try multiple selectors for different Discourse versions
-    const sidebar = document.querySelector('.sidebar-sections')
-      || document.querySelector('.sidebar-wrapper .sidebar-section-wrapper')?.parentElement
-      || document.querySelector('#d-sidebar')
-      || document.querySelector('.sidebar-container');
-    if (!sidebar) return;
-
-    const wrapper = document.createElement('div');
-    wrapper.className = 'pg-news-link';
-    wrapper.innerHTML = `
-      <a href="https://news.promptgoblins.ai" class="pg-news-link__anchor">
-        <span class="pg-news-link__icon">📰</span>
-        <span class="pg-news-link__text">AI News</span>
-        <svg class="pg-news-link__arrow" width="14" height="14" viewBox="0 0 16 16" fill="currentColor">
-          <path d="M6.22 3.22a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.75.75 0 0 1-1.06-1.06L9.94 8 6.22 4.28a.75.75 0 0 1 0-1.06z"/>
-        </svg>
-      </a>
-    `;
-    sidebar.insertBefore(wrapper, sidebar.firstChild);
-  }
-
-  // Try on page change, and watch for sidebar appearing via MutationObserver
-  api.onPageChange(() => setTimeout(injectNewsLink, 500));
-
-  const sidebarObserver = new MutationObserver(() => injectNewsLink());
-  sidebarObserver.observe(document.body, { childList: true, subtree: true });
-
   // Custom Goblin Mode / Chill Mode toggle
   api.onPageChange(() => {
     const updateToggleText = () => {
