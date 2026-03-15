@@ -2,7 +2,11 @@
   // AI News link at top of sidebar
   function injectNewsLink() {
     if (document.querySelector('.pg-news-link')) return;
-    const sidebar = document.querySelector('.sidebar-sections');
+    // Try multiple selectors for different Discourse versions
+    const sidebar = document.querySelector('.sidebar-sections')
+      || document.querySelector('.sidebar-wrapper .sidebar-section-wrapper')?.parentElement
+      || document.querySelector('#d-sidebar')
+      || document.querySelector('.sidebar-container');
     if (!sidebar) return;
 
     const wrapper = document.createElement('div');
@@ -20,7 +24,7 @@
   }
 
   // Try on page change, and watch for sidebar appearing via MutationObserver
-  api.onPageChange(() => setTimeout(injectNewsLink, 200));
+  api.onPageChange(() => setTimeout(injectNewsLink, 500));
 
   const sidebarObserver = new MutationObserver(() => injectNewsLink());
   sidebarObserver.observe(document.body, { childList: true, subtree: true });
